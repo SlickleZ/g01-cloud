@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
+
+* {
+  font-family: 'Kanit', sans-serif;
+  margin: 0;
+  /* padding: 0; */
+}
+
+body {
+  /* height: 100vh; */
+  /* min-height: 75rem; */
+  padding-top: 4.5rem;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.navbar {
+  box-shadow: 1px 11px 19px -3px rgba(0,0,0,0.61);
+  -webkit-box-shadow: 1px 11px 19px -3px rgba(0,0,0,0.61);
+  -moz-box-shadow: 1px 11px 19px -3px rgba(0,0,0,0.61);
+}
+
+.nav-logo {
+  width: 60%;
+  min-width: 50%;
+  max-width: 70%;
+}
+
+.nav-logo-link {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+}
+
+.nav-login-icon, .nav-logout-icon {
+  display: block;
+  position: absolute;
+  top: 30%;
+  right: 5%;
+}
+
+.nav-shop-icon {
+  display: block;
+  position: absolute;
+  top: 30%;
+  right: 10%;
+}
+
+.login-button {
+  display: none;
+}
+
+.checkout-button {
+  display: none;
+}
+
+.fa-sign-out-alt {
+  font-size: 2vw; 
+  color: white;
+}
+
+.nav-link, .nav-login-icon, .nav-logout-icon, .nav-shop-icon {
+  transition: all .25s ease;
+}
+
+.nav-link:hover, .nav-login-icon:hover, .nav-logout-icon:hover, .nav-shop-icon:hover {
+  transform: scale(1.0);
+}
+
+.nav-link:active, .nav-login-icon:active, .nav-logout-icon:active, .nav-shop-icon:active {
+  transform: scale(0.9);
+}
+
+
+@media screen and (max-width: 992px) {
+  .nav-logo {
+    width: 80%;
+    min-width: 80%;
+    max-width: 80%;
+  }
+  .nav-logo-link {
+    width: 10%;
+    margin-right: 0;
+  }
+  .navbar-toggler {
+    position: absolute;
+    top: 20%;
+    right: 20px;
+  }
+  .nav-login-icon, .nav-shop-icon {
+    display: none;
+  }
+  .login-button, .checkout-button {
+    display: block;
+  }
+  .fa-sign-out-alt {
+    font-size: 3vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-logo {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .nav-logo-link {
+    width: 15%;
+  }
+  .fa-sign-out-alt {
+    font-size: 5vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav-logo {
+    width: 110%;
+    min-width: 110%;
+    max-width: 110%;
+  }
+  .navbar-toggler {
+    position: absolute;
+    top: 10%;
+    right: 20px;
+  }
+  .nav-logo-link {
+    width: 15%;
+  }
+  .fa-sign-out-alt {
+    font-size: 5vw;
+  }
+}

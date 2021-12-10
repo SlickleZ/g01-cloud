@@ -1,0 +1,53 @@
+body{
+    background-image: url("https://storage.googleapis.com/cloud-project-g01/dogs-review.jpg");
+}
+
+.container-box{
+    display: block;
+    margin: auto;
+    width: 80%;
+    padding-top: 2%;
+    background-color: rgba(244, 231, 215, 0.8);
+}
+
+.comment-box{
+    display: block;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 1);
+    width: 90%;
+    margin-bottom: 1%;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.star{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.shiba-rank {
+    width: 5%;
+}
+
+.rating {
+    width: 15%;
+}
+
+@media screen and (max-width: 992px) {
+    .shiba-rank {
+        width: 8%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .shiba-rank {
+        width: 10%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .shiba-rank {
+        width: 14%;
+    }
+}

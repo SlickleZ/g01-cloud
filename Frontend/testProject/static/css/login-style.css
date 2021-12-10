@@ -1,0 +1,62 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+.user{
+    font-size: 120px;
+    padding-top: 5vh;
+}
+.toop{
+    padding-top: 3vh;
+}
+.formheader{
+    
+    width: 600px;
+    height: 360px;
+    padding-top: 5vh;
+}
+.sign-data{
+    padding-right: 50px;
+    padding-left: 50px;
+}
+.addmodel{
+   padding-left: 2.5%;
+   padding-right: 2.5%;
+}
+.user2{
+    font-size: 120px;
+}
+
+.tobucket {
+    transition: all .25s ease;
+    cursor:pointer;
+}
+  
+  .tobucket:hover {
+    transform: scale(1.0);
+  }
+  
+  .tobucket :active{
+    transform: scale(0.9);
+  }
+.inforproduct{
+    padding: 2%; 
+    border-radius: 25px; 
+    background-color: rgb(197, 197, 197);
+}
+
+.myContent {
+    display: flex;
+    /* width: 100%;
+    height: 100%; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.log-failed {
+    width: 39%;
+    min-width: 39%;
+    max-width: 50%;
+}

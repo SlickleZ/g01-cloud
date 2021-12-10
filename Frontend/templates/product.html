@@ -1,0 +1,68 @@
+{% extends 'navbar/navbar-shop.html' %} {% block title %}
+{% load static %}
+{% block links %}
+<link href="{% static 'css/login-style.css' %}" rel="stylesheet">
+{% endblock %}
+<title>Product - Shib Hai</title>
+{% endblock title %} 
+
+{% block content %}
+<h1 style="margin-top: 20px">Product : {{product.prod_id}}</h1>
+<div class="row text-center m-4" style="margin-top: 2.5%">
+  <div class="col-lg-8" style="padding: 20px;">
+    <img class="img-fluid" style="width: 100%; height: auto; max-width: 350px" alt="Responsive image"
+      src="https://storage.googleapis.com/cloud-project-g01/product-pics/{{product.prod_id}}.png" />
+  </div>
+  <div class="inforproduct col-lg-4">
+    <p class="fs-4 text-start" style="padding: 5%;">ชื่อสินค้า : <span id="name-view">{{product.prod_name}}</span></p>
+    <p class="fs-5" style="padding: 5%; text-align: justify;">รายละเอียดสินค้า <br><span id="detail-view">{{product.prod_detail}}</span></p>
+    <div class="d-flex align-items-start flex-column bd-highlight" style="height: 80px">
+      <div class="mt-auto bd-highlight fs-3" style="padding:5%;">ราคา : <span id="price-view">{{product.prod_price}}</span> THB</div> 
+    </div>
+    <div class="d-flex align-items-start bd-highlight col-md-4">
+      <div class="tobucket" style="display: flex; flex-direction: row;">
+        <i class="fas fa-minus-circle d-flex align-items-center p-4 fs-2" onclick="decrease({{product.prod_quantity}})"></i>
+        <p class="d-flex align-items-center p-1 fs-5" id="number" style="margin: 0;">0</p>
+        <p class="d-flex align-items-center p-1 fs-5" style="margin: 0;">/<span id="quantity-view">{{product.prod_quantity}}</span></p>
+        <i class="fas fa-plus-circle d-flex align-items-center p-4 fs-2" onclick="increase({{product.prod_quantity}})"></i>
+      </div>
+    </div>
+    <p class="tobucket text-end fs-4 text-white" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="checkOut()" style="font-family: 'Kanit', sans-serif;">
+      <i class="fas fa-wallet fs-3 bg-black"style="padding: 5%; border-radius: 25px;">  ชำระเงิน</i>
+    </p>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ยืนยันการชำระเงิน</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="{% url 'checkout-manage' product.prod_id %}" method="post">{% csrf_token %}
+        <div class="modal-body">
+            <div class="mb-3">
+              <p class="fs-5 text-center">
+                {{product.prod_name}}<br><br>
+                ทั้งหมด <span class="text-primary" id="number-display"></span> ชิ้น<br><br>
+                รวมทั้งหมดเป็นราคา <span class="text-primary" id="total-price-display"></span> บาท
+              </p>
+            </div>         
+            <input type="hidden" id="number_post" name="number" value="1">
+            <input type="hidden" id="name_post" name="name" value="1">
+            <input type="hidden" id="detail_post" name="detail" value="1">
+            <input type="hidden" id="price_post" name="price" value="1">
+            <input type="hidden" id="total_quan_post" name="total_quan" value="1">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ไม่ดีกว่า</button>
+          <input type="submit" class="btn btn-success" color: white;" value="เอาสิ!"></input>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<script src="{% static 'js/quantity.js' %}"></script>
+<script src="{% static 'js/checkout.js' %}"></script>
+{% endblock content %}

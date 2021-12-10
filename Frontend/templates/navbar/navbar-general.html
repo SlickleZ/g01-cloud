@@ -1,0 +1,25 @@
+{% extends 'navbar/navbar-base.html' %}
+
+{% block nav-icons %}
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon fs-5"></span>
+    </button>
+    <a class="nav-login-icon" href="{% url 'logIn' %}">
+        <i class="far fa-user" style="font-size: 1.5rem; color: white;"></i>
+    </a>
+{% endblock nav-icons %}
+
+{% block list-items %}
+    <li class="nav-item me-4">
+        <a class="nav-link" aria-current="page" href="{% url 'products' %}">Products</a>
+    </li>
+    <li class="nav-item me-4">
+        <a class="nav-link" href="{% url 'reviews' %}">Review</a>
+    </li>
+    <li class="nav-item me-4">
+        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+    </li>
+    <li class="nav-item login-button">
+        <a class="nav-link" href="{% url 'logIn' %}">LogIn</a>
+    </li>
+{% endblock list-items %}

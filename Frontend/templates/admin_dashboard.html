@@ -1,0 +1,56 @@
+{% extends 'navbar/navbar-admin.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/login-style.css' %}">
+{% endblock links %}
+{% block title %}
+  <title>Dashboard - Shib Hai</title>
+{% endblock title %}
+
+{% block nav-icons %}
+    <a class="nav-logout-icon" href="{% url 'logIn' %}">
+        <i class="fas fa-sign-out-alt"></i>
+    </a>
+{% endblock nav-icons %}
+
+{% block content %}
+  <h1 style="margin-top: 20px;">Dashboard</h1>
+  <div class="text-end " style="margin-right: 5%;"><a href="{% url 'add-product' %}"><i class="fas fa-cart-plus fs-4">ADD</i></a></div>
+    <div class="d-flex justify-content-center p-md-5 table-responsive">
+    <table class="table table-bordered " border="1">
+        <tr><td class="text-lg-center" colspan="4">List Product</td></tr>
+        <tr>
+          <td class="text-lg-center" colspan="1">Product ID</td>
+          <td class="text-lg-center" colspan="1">Product Name</td>
+          <td class="text-lg-center" colspan="1">Product Price</td>
+          <td class="text-lg-center" colspan="1">Operation</td>
+        </tr>
+        {% if products %}
+          {% for product in products %}
+            <tr>
+                <td  class="col-md-2">{{product.prod_id}}</td>
+                <td  class="col-md-2">{{product.prod_name}}</td>
+                <td  class="col-md-2">{{product.prod_price}}</td>
+                <td class="text-center col-sm-1">
+                  <form class="d-inline-block " action="{% url 'edit-product' product.prod_id %}" method="get">
+                    <button  class="btn btn-success" type ="submit" >Edit</button>
+                  </form>
+                  <form class="d-inline-block" action="{% url 'del-manage' product.prod_id %}" method="post">{% csrf_token %}
+                    <button class="btn btn-danger" type ="">Delete</button>
+                  </form>
+                </td>
+            </tr>
+          {% endfor %}
+        {% else %}
+            <tr>
+              <td  class="col-md-2">&nbsp;</td>
+              <td  class="col-md-2">&nbsp;</td>
+              <td  class="col-md-2">&nbsp;</td>
+              <td class="text-center col-sm-1">
+              &nbsp;
+              </td>
+            <tr>
+        {% endif %}
+      </table>
+    </div>    
+{% endblock content %}

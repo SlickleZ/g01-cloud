@@ -1,0 +1,45 @@
+{% extends 'navbar/navbar-admin.html' %} {% load static %} {% block links %}
+<link rel="stylesheet" href="{% static 'css/login-style.css' %}" />
+{% endblock links %} {% block title %}
+<title>Edit product - Shib Hai</title>
+{% endblock title %} {% block content %}
+<h1 style="margin-top: 20px">Edit product</h1>
+<div class="addmodel">
+    <form action="{% url 'edit-manage' product.prod_id %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">ID</label>
+        <div class="col-sm-10">{{product.prod_id}}</div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="input" name="prod_name" value="{{product.prod_name}}" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Price</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="input" name="prod_price" value="{{product.prod_price}}" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Detail</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="input" name="prod_detail" value="{{product.prod_detail}}" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="input" class="col-sm-2 col-form-label">Quantity</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="input" name="prod_quantity" value="{{product.prod_quantity}}" />
+        </div>
+      </div>
+      <input type="file" name="file_input" accept="image/*" />
+      <br><br>
+      <div class="text-end">
+          <input class="col-md-1 p-md-2 text-white" type="submit" value="Save" style="background-color:#674A68;"></input>
+          <a href="{% url 'admin-dashboard' %}"><button class="col-md-1 p-md-2 text-white" type="button" style="background-color:#674A68;">Back</button> </a>
+      </div>
+    </form>  
+  </div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'navbar/navbar-general.html' %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/login-style.css' %}">
+{% endblock links %}
+
+{% block title %}
+  <title>{{failedMessage}} Failed - Shib Hai</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="myContent container-fluid">
+        <img class="img-fluid log-failed" src="https://storage.googleapis.com/cloud-project-g01/log_failed.png" alt="failed login logo" />
+        <p class="fs-3 text-danger">{{failedMessage}}! {{reason}}</p>
+    </div>
+{% endblock content %}

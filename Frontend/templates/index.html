@@ -1,0 +1,33 @@
+{% extends 'navbar/navbar-general.html' %}
+
+{% load static %}
+{% block links %}
+    <link href="{% static 'css/navbar-style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+{% endblock links %}
+
+{% block title %}
+  <title>Home - Shib Hai</title>
+{% endblock title %}
+
+{% block content %}
+
+<style>
+  body {
+    background-image: url('https://storage.googleapis.com/cloud-project-g01/shiba-home.jpg');
+  }
+</style>
+
+  <div class="biglay">
+      <img src="https://storage.googleapis.com/cloud-project-g01/Shiba_logo.png" class="img-fluid shiba-logo" alt="logo">
+       <div class="rt-feature container-md"> 
+        <h1 class="h2-responsive font-weight-bold text-center">WELCOME TO</h1>
+        <h1 class="h1-responsive font-weight-bold text-center">SHIB HAI SHOP</h1>
+        <h2 class="h2-responsive font-weight-bold text-center">The Best Website for your dog<br></h2>
+        <p class="fs-4">More than 1,000 years of experience, we love to take care your dog 
+            like son. We started with dog tool and expand to other branches such as wearable,
+            dog home and whatever product about dog.</p>  
+     </div>
+    </div>
+
+{% endblock content %}

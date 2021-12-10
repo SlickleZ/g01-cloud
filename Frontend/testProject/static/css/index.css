@@ -1,0 +1,91 @@
+
+  * {
+      margin: 0;
+      padding: 0;
+  }
+
+.rt-feature {
+  background: none no-repeat scroll 0 0 #fff;
+  background-color: rgba(255, 255, 255, 0.932);
+  opacity: 0.95;
+  text-align: center;
+  padding: 3%;
+  border-radius: 20px;
+  /* width: 70vw;
+  height: 55vh;
+  max-height: 65vh; */
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+}
+
+
+  .biglay{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      flex-direction: column;
+  }
+
+  
+  .header{
+      font-size:2.5vw
+  }
+  
+  .sub_header{
+    font-size:2vw
+  }
+  
+  .text{
+    font-size:1.5vw
+  }
+
+  .shiba-logo{
+    width: 25%;
+  }
+
+  @media screen and (max-width: 768px){
+      .header{
+          font-size:5vw
+      }
+      
+      .sub_header{
+        font-size:4vw
+      }
+      
+      .text{
+        font-size:3vw
+      }
+
+      .shiba-logo {
+        width: 30%;
+      }
+  }
+
+  @media screen and (max-width: 992px){
+      .header{
+          font-size:7vw
+      }
+      
+      .sub_header{
+        font-size:5.5vw
+      }
+      
+      .text{
+        font-size:4vw
+      }
+      .shiba-logo {
+        width: 50%;
+      }
+  }
+
+  .blur{
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+  }
+  

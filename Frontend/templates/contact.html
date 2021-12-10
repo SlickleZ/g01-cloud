@@ -1,0 +1,68 @@
+{% extends 'navbar/navbar-general.html' %}
+
+{% load static %}
+{% block links %}
+    <link href="{% static 'css/navbar-style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/contact.css' %}" rel="stylesheet">
+{% endblock links %}
+
+{% block title %}
+  <title>Home - Shib Hai</title>
+{% endblock title %}
+
+{% block content %}
+
+<style >
+  body {
+    background-image: url('https://storage.googleapis.com/cloud-project-g01/shiba-contact.jpg');
+    background-size:100vh;
+    background-position-x: center;
+  }
+</style>
+<section class="biglay">
+  <div class="rt-feature container">
+  <!--Section heading-->
+  <h2 class="h1-responsive font-weight-bold text-center">Contact us</h2>
+  <!--Section description-->
+
+  <div class="row text-center">
+
+      <!--Grid column-->
+      <div class="col">
+
+              <!--Grid row-->
+              <div class="row">
+
+                  <!--Grid column-->
+                  <div class="col">
+                      <div class="md-form left">
+                        <p class="fs-4">Tel(+66) 61-234-5678 (TH)<br>
+                               Email: direct.contact@shiba.store<br>
+                               line ID: @Shibhai.doge.store</p>
+                        
+                      </div>
+                  </div>
+                  <!--Grid column-->
+
+                  <!--Grid column-->
+                  <div class="col">
+                      <div class="md-form left">
+                        <p class="fs-4">
+                          61/33 Moo 6,Sao ThongHin, Bangyai <br>
+                          Nonthaburi 11140 THAILAND<br> 
+                          Business Hours: Mon-Fri 9:00-18:00</p>  
+                      </div>
+                  </div>
+                  <!--Grid column-->
+                  <div class="md-form md">
+                    <a href="https://www.facebook.com/kmitlofficial" target="_blank"><i class="fab fa-facebook fs-1"></i></a>
+                    <a href="https://www.instagram.com/kmitlofficial/" target="_blank"><i class="fab fa-instagram fs-1"></i></a>
+                  </div>
+
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+</section>
+{% endblock content %}

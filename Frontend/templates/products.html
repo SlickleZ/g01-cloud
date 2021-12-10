@@ -1,0 +1,29 @@
+{% extends 'navbar/navbar-shop.html' %}
+{% load static %}
+
+{% block links %}
+<link href="{% static 'css/products-style.css' %}" rel="stylesheet">
+{% endblock links %}
+
+{% block title %}
+<title>All Products - Shib Hai</title>
+{% endblock title %}
+
+{% block content %}
+<h1 style="margin-top: 20px;">All Products</h1>
+<div class="d-flex flex-wrap justify-content-center">
+  {% if products %}
+    {% for product in products %}
+    <a href="{% url 'product' product.prod_id %}" class="text-decoration-none" id="product-box">
+      <div id="product-box-img">
+        <img src="https://storage.googleapis.com/cloud-project-g01/product-pics/{{product.prod_id}}.png">
+      </div>
+      <div id="product-box-text">
+        <h6 class="text-decoration-none fs-6">{{product.prod_name}}</h6>
+        <h6 class="text-decoration-none fs-6">{{product.prod_price}} THB</h6>
+      </div>
+    </a>
+    {% endfor %}
+  {% endif %}
+</div>
+{% endblock content %}

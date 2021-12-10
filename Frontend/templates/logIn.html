@@ -1,0 +1,29 @@
+{% extends 'navbar/navbar-general.html' %}
+{% load static %}
+{% block links %}
+  <link rel="stylesheet" href="{% static 'css/login-style.css' %}">
+{% endblock links %}
+
+{% block title %}
+  <title>Log In - Shib Hai</title>
+{% endblock title %}
+
+{% block content %}
+  <div class="d-flex justify-content-center">
+    <form class="formheader col-xxl-auto" action="{% url 'login-manage' %}" method="post">{% csrf_token %}
+        <div class="mt-5 mb-2 text-center " >
+            <i class="user far fa-user"></i>
+        </div>
+        <div class="sign-data mb-1">
+          <label for="exampleInputEmail1" class="form-label"></label>
+          <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp" placeholder="Admin">
+        </div>
+        <div class="sign-data mb-1">
+          <label for="exampleInputPassword1" class="form-label"></label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+        </div>
+        <div class="toop text-end"><button type="submit" class="btn btn-secondary">login</button></div>
+    </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,85 @@
+{% extends 'navbar/navbar-general.html' %}
+{% load static %}
+
+{% block links %}
+  <link href="{% static 'css/reviews-style.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+{% endblock links %}
+
+{% block title %}
+<title>Reviews - Shib Hai</title>
+{% endblock title %}
+
+{% block content %}
+<div class="container-box d-flex justify-content-center">
+  <div style="text-align: center;" class="d-flex flex-column">
+    <h1>Review</h1>
+    <h2>มาให้ดาวน้องหมากันเถอะ</h2>
+    <br>
+    <div class="d-flex flex-column-reverse">
+      {% for review in reviews %}
+      <div class="comment-box">
+        <div class="star d-flex justify-content-start">
+        {% with ''|center:review.rating as range %}
+          {% for j in range %}
+            <img src="https://storage.googleapis.com/cloud-project-g01/shiba-rating-shine.png" class="shiba-rank">
+          {% endfor %}
+        {% endwith %}
+        </div>
+        <div class="fs-5" style="float: left;">
+          <h5>By {{review.reviewer}}</h5>
+        </div>
+        <br><br>
+        <div class="fs-6" style="float: left;">
+          <p style="text-align: left;">{{review.comment}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<div class="modal-custom">
+  <button type="button" class="btn fixed-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" style="margin: 2%;background-color: rgba(103, 74, 104, 1); color: white;">Add Comment</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Put your comment here!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="{% url 'add-comment' %}" method="post">{% csrf_token %}
+        <div class="modal-body">
+            <div class="mb-3">
+              <!-- star rating -->
+              <div class="d-flex flex-row">
+                <img class ="rating" id="rating-1" src="https://storage.googleapis.com/cloud-project-g01/shiba-rating-dark.png" onclick="give_rating(1)">
+                <img class ="rating" id="rating-2" src="https://storage.googleapis.com/cloud-project-g01/shiba-rating-dark.png" onclick="give_rating(2)">
+                <img class ="rating" id="rating-3" src="https://storage.googleapis.com/cloud-project-g01/shiba-rating-dark.png" onclick="give_rating(3)">
+                <img class ="rating" id="rating-4" src="https://storage.googleapis.com/cloud-project-g01/shiba-rating-dark.png" onclick="give_rating(4)">
+                <img class ="rating" id="rating-5" src="https://storage.googleapis.com/cloud-project-g01/shiba-rating-dark.png" onclick="give_rating(5)">
+                <input type="hidden" name="rating" id="rate_value" value="1">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Name</label>
+              <input type="text" class="form-control" name="reviewer" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Comment</label>
+              <textarea class="form-control fs-6" name="comment" id="message-text"></textarea>
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Close"></input>
+          <input type="submit" class="btn" style="background-color: rgba(103, 74, 104, 1); color: white;" value="Add Comment"></input>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock content %}
